@@ -1,525 +1,324 @@
 +++
-title = "Overview on my research area"
+title = "Reproducible Research Experiments"
 outputs = ["Reveal"]
 +++
 
-# Individual vs Collective Perspective for MAS
-## A quick overview of my research area
+# Reproducible Research Experiments
+## Martina Baiardi and Raphael Schwinger
 
 ---
 
-# Brief introduction
+# Table of Contents
 
-- 2nd year PhD Student from `University of Bologna` (`UNIBO`)
-- Supervisor: 
-![](https://www.unibo.it/uniboweb/utils/UserImage.aspx?IdAnagrafica=503326&IdFoto=e1c80103) [Danilo Pianini](https://www.unibo.it/sitoweb/danilo.pianini/en)
-- Research group context: `Pervasive Computing`
+1. Introduction to reproducible research meaning (**Martina**)
+2. Reproducibility starts from development: build tools (gradle x JVM, Poetry x Python) and frameworks (hydra) (**Raphael**)
+3. Basics of Containerization: Dockerfile and docker-compose (**Martina**)
+4. Hands on a project: RL reproducible experiment setup using Poetry and Hydra (**Raphael**)
+5. Cherry on the top: automation. GitHub, OSS proj, CI/CD pipelines, Github Actions, ... (**Martina**)
+
 
 ---
 
-## Some faces and topics we are currently working on
-
-![](./images/group-act.svg)
+# Short guide to Markdown slides
 
 ---
 
-## What am I into
+# Headers
 
-![](./images/group-act.svg)
-
-
-<div class="overlay">
-  <div class="circle-1">
-  </div>
-  <div class="circle-2">
-  </div>
-  <div class="circle-3">
-  </div>
-  <div class="circle-4">
-  </div>
-</div>
-
-</circles>
+# H1
+## H2
+### H3
+#### H4
 
 ---
 
-## Industry
+# Text
 
-- Active collaboration with the italian industry `SCM Group` that operates worldwide
-- Project: automation for software updates in the context of industrial woodworking machines
-  
-  challenges:
-  - heterogeneous devices
-  - globally distributed devices
-  - business-critical machines 
+normal text
 
-- Main skills: 
-  * `Software updates` 
-  * `Autonomous pipelines` 
-  * `Containerization` 
-  * `Virtualization` 
-  * `Hypervisors`
+`inline code`
 
----
+*italic*
 
-## Deployment
+**bold**
 
-- Experimenting ways to easily manage several heterogeneous devices and use their resources
-- Two clusters offered to run experiments for both *students* and *researchers*:
-  * AlmaAI cluster
-  * Area 4.0 cluster
-- **Managed from researchers for researchers**
-- Main skills: 
-  * `Container orchestration` (`Docker` and `Kubernetes`)
-  * `Virtualization` 
-  * `Network configuration` 
-  * `Network file system`
-  * `Clustered storage`
+**_emphasized_**
 
-<br />
-<br />
+*__emphasized alternative__*
 
-<div>
-<small style="text-align: left"> 
-[*] Baiardi M., Ciatto G., Pianini D. - Infrastructures for the Edge-Cloud Continuum on a Small Scale: A Practical Case Study. ACSOS-C 2023
-</small>
-</div>
+~~strikethrough~~
+
+[link](http://www.google.com)
 
 ---
 
-## Conceptualization & Tools
+# Lists and enums
 
-
-- `Macroprogramming / Aggregate Computing`: Controlling multiple devices/entities at once using `space` and `time`. 
-  
-  Languages, cronologically:
-  - `Scafi`[1]: a Scala Domain-Specific Language (DSL)
-  - `Collektive`[2]: a Kotlin Multi-platform DSL
-- `BDI Agent-Oriented Programming` 
-  - `JaKtA`[3]: my master thesis, a Kotlin DSL implementation for modelling `BDI` agents.
-- `Simulation`
-  - `Alchemist`[4]: a simulator for pervasive computing, inspired from chemistry reactions.
-- Main skills: 
-  * `Software development`
-  * `Software packaging and delivery`
-  * `Testing automation` 
-  * `Continuous Integration / Continuous Deployment` 
-  * `Build systems`
-
-
-<br />
-<br />
-
-<div>
-<small style="text-align: left">
-
-[1] [https://github.com/scafi/scafi](https://github.com/scafi/scafi)<br/>
-[2] [https://github.com/Collektive/collektive](https://github.com/Collektive/collektive)<br/>
-[3] [https://github.com/jakta-bdi/jakta](https://github.com/jakta-bdi/jakta)<br/>
-[4] [https://github.com/AlchemistSimulator/Alchemist](https://github.com/AlchemistSimulator/Alchemist)<br/>
-
-</small>
-</div>
+1. First ordered list item
+1. Another item
+    * Unordered sub-list.
+    * with two items
+        * another sublist
+            1. With a sub-enum
+            1. yay!
+1. Actual numbers don't matter, just that it's a number
+  1. Ordered sub-list
+1. And another item.
 
 ---
 
-## Aggregate vs BDI Agents
+# Inline images
 
-- Same purpose: a way for representing entities adhering to (some) Autonomic Computing principles
-  - ... but different scopes
-
-- `Aggregate Computing` is for representing elements in the environment which exhibit a `collective` behaviour.
-
-- `BDI Multi-Agent Programming` is for representing each entity in an environment using a well-known framework (`AgentSpeak(L)`), inspired from human mental process.
-  - **This is more my expertise area**
+![Alternative text](https://upload.wikimedia.org/wikipedia/commons/6/6c/Scavolino_innevata.jpg)
 
 ---
 
-## Conceptualization strengths
+## Fallback to shortcodes for resizing
 
-- A good way to describe the problem allows to explore different perspectives of it.
+Autoresize specifying
 
-<img src="./images/conceptual difference.png" width=100% />
+* `max-w` (percent of parent element width) and/or `max-h` (percent of viewport height) as max sizes , and
+* `width` and/or `height` as *exact* sizes (as percent of viewport size)
 
----
-
-# Aggregate Applications Examples 
-
----
-
-### Aggregate Swarm simulations
-
-![](https://user-images.githubusercontent.com/23448811/224012578-d375de46-23c3-44e6-99cf-9d937548a1a5.gif)
-![](https://user-images.githubusercontent.com/23448811/224012332-290c81e1-effa-4cab-ae03-c603c116dd99.gif)
-
-
-<div>
-<small style="text-align: left"> 
-
-[source: [https://github.com/scafi/macro-swarm](https://github.com/scafi/macro-swarm) 
-]
-
-</small>
-</div>
+{{< figure src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Scavolino_innevata.jpg" height="20">}}
 
 ---
 
-### Reinforcement Learning using Aggregate Models
+## Multi-column slide
 
 {{% multicol %}}{{% col %}}
-
-
-![](./images/gaguzzi-paper.png)
-
-
+Column 1
 {{% /col %}}{{% col %}}
-
-<div class="text-center">
-
-![](./images/gnn-inside-aggregate.png)
-
-</div>
-
-- `Aggregate` is used to enhance agents' state during reinforcement learning
-- The information is obtained through the adoption of a `Graph Neural Network` in this paper.
-
-
+Column 2
 {{% /col %}}{{% /multicol %}}
 
-
-<small style="text-align: left"> 
-[*] Gianluca Aguzzi, Mirko Viroli, Lukas Esterle: Field-informed Reinforcement Learning of Collective Tasks with Graph Neural Networks. (2023) <br />
-</small>
+{{% multicol %}}
+{{% col class="col-8" %}}
+Larger columns using bootstrap
+{{% /col %}}
+{{% col %}}
+[Link to bootstrap grid system](https://getbootstrap.com/docs/4.0/layout/grid/)
+{{% /col %}}
+{{% /multicol %}}
 
 ---
 
-### Federated Learning using Aggregate Models
+## Chart.js
 
-{{% multicol %}}{{% col %}}
+{{< chart >}}
+{
+    type: 'bar',
+    data: {
+        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        datasets: [{
+            label: 'Bar Chart',
+            data: [12, 19, 18, 16, 13, 14],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        maintainAspectRatio: false,
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+}
+{{< /chart >}}
 
-<div class="text-center">
+---
 
-![](./images/federated-learning-aggregate.png) 
-<img src ="./images/csm_federated-learning_01_2dea2cd6c5.png" width=50% />
+## FontAwesome
 
+<i class="fa-solid fa-mug-hot"></i>
+<i class="fa-solid fa-lemon"></i>
+<i class="fa-solid fa-flask"></i>
+<i class="fa-solid fa-apple-whole"></i>
+<i class="fa-solid fa-bacon"></i>
+<i class="fa-solid fa-beer-mug-empty"></i>
+<i class="fa-solid fa-pepper-hot"></i>
+
+---
+
+## Bootstrap 1
+
+<div class="card w-100" >
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/View_of_Cesena_from_the_Abbey.jpg/1920px-View_of_Cesena_from_the_Abbey.jpg" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
 </div>
 
+---
 
-{{% multicol %}}{{% col %}}
+## Bootstrap 2
 
-<div class="text-center">
+<button type="button" class="btn btn-primary">Primary</button>
+<button type="button" class="btn btn-secondary">Secondary</button>
+<button type="button" class="btn btn-success">Success</button>
+<button type="button" class="btn btn-danger">Danger</button>
+<button type="button" class="btn btn-warning">Warning</button>
+<button type="button" class="btn btn-info">Info</button>
+<button type="button" class="btn btn-light">Light</button>
+<button type="button" class="btn btn-dark">Dark</button>
 
-
-![](images/scr1.png) 
-![](images/scr2.png) 
-![](images/scr3.png)
-
-</div>
-
-{{% /col %}} {{% /multicol %}}
-
-
-
-{{% /col %}}{{% col %}}
-
-- The aim is to overcome limitations of traditional federated learning models, where
-  - Clustering is performed by the central server
-  - No. of cluster predefined
-  - Central server is a Single-Point of failure 
-
-- `Aggregate` improves the model of the network adopting `Self-Coordination Regions` (SCR)
-  - Re-election of the leader in case of failure 
-  - Regions are selected on similarity metrics, no pre-defined clustering
-
-{{% /col %}}{{% /multicol %}}
-
-
-<div>
-<small>
-[*] D. Domini, G. Aguzzi, N. Farabegoli, M. Viroli and L. Esterle, "Proximity-based Self-Federated Learning," 2024 IEEE International Conference on Autonomic Computing and Self-Organizing Systems (ACSOS), Aarhus, Denmark, 2024 <br />
-[*] Domini, D., Aguzzi, G., Esterle, L., Viroli, M. (2024). Field-Based Coordination for Federated Learning. In: Castellani, I., Tiezzi, F. (eds) Coordination Models and Languages. COORDINATION 2024
-</small>
-</div>
-
- ---
-
-
-# How do I choose among these representation?
-## Let's start from an example
+<button type="button" class="btn btn-link">Link</button>
 
 ---
 
-## Distributed Applications
-#### Running on unknown network topologies
+## Low res, plain markdown
 
-<br/>
-
-{{< figure src="images/path2.svg" width="50%" >}}
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Scavolino_innevata.jpg/260px-Scavolino_innevata.jpg)
 
 ---
 
-#### May be subject to unpredictable connectivity failures
+## Hi res, plain markdown
 
-<br />
-
-{{< figure src="images/path2-6.svg" width="50%" >}}
+![](https://upload.wikimedia.org/wikipedia/commons/6/6c/Scavolino_innevata.jpg)
 
 ---
 
-#### We need *autonomous* entities <br/>capable to *adapt* their behaviour to the failure <br/>and continue to work as expected 
-<br />
+{{< slide background-image="https://upload.wikimedia.org/wikipedia/commons/6/6c/Scavolino_innevata.jpg" >}}
 
-{{< figure src="images/path2-6-1.svg" width="50%" >}}
-
----
-
-## *Here lies the first difference*
-
-Viewing system interactions in terms of:
-
-{{% multicol  %}}{{% col class="text-center" %}}
-
-information propagating through <br/> collectives of devices
-
-<i class="fa-solid fa-arrow-down"></i>
-
-`Aggregate Computing`
-
-{{% /col %}}{{% col class="text-center" %}}
-
-individual devices with different interactions <br/> with their peers in the environment
-
-<i class="fa-solid fa-arrow-down"></i>
-
-`Multi-Agent Systems`
-
-{{% /col %}}{{% /multicol %}}
-
----
-
-## Agents
-
-<br />
-
-{{< figure src="images/path43-7.svg" width="50%" >}}
-
----
-
-# Agent-Oriented Programming
-
-<br />
-
-
-{{< figure src="images/rect46.svg" width="50%" >}}
-
-<small>[1] Weiss, Gerhard, Multiagent Systems. MIT Press, 2013</small>
-
----
-
-# Agent-Oriented Programming
-
-<br />
-
-{{< figure src="images/BDIAgents.svg" width="50%" >}}
-
-<small>[1] Weiss, Gerhard, Multiagent Systems. MIT Press, 2013</small>
+# Large images as background
+## (May affect printing)
 
 ---
 
 
-# BDI?
+{{< slide background-video="https://github.com/DanySK/slides-2024-acsos-imageonomics/raw/master/content/nonnadir.mkv" background-video-loop="true" background-video-muted="true" background-opacity="0.95">}}
 
-## Beliefs, Desires, Intentions
-
-<br />
-
-- It's a framework to model Multi-Agent Systems through *Goals*
-- Reduces the *abstraction gap* between *cognitive abstractions* and the abstractions of common paradigms
-  - Mimicking human-level notions such as *beliefs*, *desires* and *intentions*
-
-### three main abstractions:
-
-- *Beliefs*: mental state of the agent, that changes over time.
-- *Desires*: motivational state of the system.
-- *Intentions*: deliberative state of the agent.
-
-<div>
-<br />
-
-<small style="text-align: left"> 
-[1] Bratman, Michael. "Intention, plans, and practical reason." (1987) <br />
-[2] Anand S. Rao and Michael P. Georgeff. "BDI agents: From theory to practice." (1995) <br />
-[3] Anand S. Rao. "Agentspeak(l): BDI agents speak out in a logical computable language." (1996) 
-</small>
-</div>
-
-
+# Video background
 
 ---
 
-# AgentSpeak(L)
+# $$\LaTeX{}$$
 
 
-{{< figure src="images/Interpreting-AgentSpeakL-Programs.png" width="50%" >}}
+Inline equations like $E=mc^2$
 
-
----
-
-<!-- # BDI Agent Programming Languages
-
-<br />
-
-{{< figure src="images/AOPlang.svg" width="50%" >}}
-
-<br />
-
-<div>
-<small style="text-align: left"> 
-[1] Collier, R.W., Russell, S.E., Lillis, D.. "Reflecting on agent programming with AgentSpeak(L). I" (2015) <br />
-[2] Hindriks, K.V.. "Programming rational agents in GOAL." (2009) <br />
-[3] Pokahr, A., Braubach, L., Lamersdorf, W.. "Jadex: A BDI reasoning engine." (2005) <br />
-[4] Bordini, R.H., Hübner, J.F., Wooldridge, M.J.. "Programming Multi-Agent Systems in AgentSpeak using Jason." (2007) <br />
-[5] D’Urso, F., Longo, C.F., Santoro, C.. "Programming intelligent iot systems with a python-based declarative tool." (2019) <br />
-[6] Palanca, J., Rincon, J.A., Carrascosa, C., Julián, V., Terrasa, A.. "A flexible agent architecture in SPADE." (2022)
-</small>
-</div> 
+$$\frac{n!}{k!(n-k)!} = \binom{n}{k}$$
 
 ---
 
-## Jakta: multi-paradigm AOP/BDI+OOP+FP
+# Code snippets
 
 
 ```kotlin
-mas {                                                   // BDI specification
-  fun allPlayers(team: String) =
-    Regex("""<a\s(\X*?)\sdata-cy="player">(.*)<\/a>""") // Object-oriented regex library
-        .findAll(URL("https://www.besoccer.com/team/squad/$team").readText())
-        .map { team to it.groupValues[2] }              // Lambda expression (Functional style)
-
-  listOf("napoli", "milan", "internazionale")           // Kotlin standard library
-      .flatMap(::allPlayers)                            // Higher-order function (Functional style)
-      .forEach { (team, player) ->                      // Destructuring declaration
-          agent(player) {
-              beliefs { fact { squad(team) } }
-              goals { achieve(start) }
-              plans {
-                  +achieve(start) onlyIf { squad(S).fromSelf } then {
-                      execute(print("Hello! I play for", S))
-                  }
-              }
-          }
-      }
-}.start()
+val x = pippo
 ```
 
-<i class="fa-solid fa-file-code"></i> [SoccerMas.kt](https://github.com/jakta-bdi/jakta-examples/blob/main/src/main/kotlin/it/unibo/jakta/agents/examples/soccer/SoccerMas.kt) 
+```go
+package main
+
+import "fmt"
+
+func main() {
+    fmt.Println("Hello world!")
+}
+```
 
 ---
--->
 
-# ...Simplified
-## A lot of similarities with Autonomic Computing MAPE-K cycle
+# Tables
 
-<br/>
+Colons can be used to align columns.
 
-{{% multicol %}}{{% col %}}
+| Tables        | Are           | Cool  |
+| ------------- |:-------------:| -----:|
+| col 3 is      | right-aligned | $1600 |
+| col 2 is      | centered      |   $12 |
+| zebra stripes | are neat      |    $1 |
 
-<img src="images/autonomic-diagram.svg" width="100%" />
+There must be at least 3 dashes separating each header cell.
+The outer pipes (|) are optional, and you don't need to make the
+raw Markdown line up prettily. You can also use inline Markdown.
 
-<div class="mx-5 text-center">
+---
 
-## *<i class="fa-solid fa-arrow-up"></i> MAPE-K* 
-Reference <u>model</u> for *Autonomic* and *self-\** systems design. 
+# Quotes
 
+> Multiple
+> lines
+> of
+> a
+> single
+> quote
+> get
+> joined
+
+> Very long one liners of Markdown text automatically get broken into a multiline quotation, which is then rendered in the slides.
+
+---
+
+# Fragments
+
+* {{< frag c="pluto" >}}
+* {{< frag c="pluto" >}}
+* {{< frag c="pluto" >}}
+
+---
+
+# Stacking images with Fragments
+{{% multicol %}}
+{{% col %}}
+<p class="fragment" data-fragment-index="0">Pippo</p>
+<p class="fragment" data-fragment-index="1">Pluto</p>
+<p class="fragment" data-fragment-index="2">Paperino</p>
+{{%/ col %}}
+
+{{% col %}}
+<div class="r-stack">
+  <img
+    class="fragment current-visible"
+    data-fragment-index="0"
+    src="https://www.topolino.it/wp-content/uploads/2019/12/pippointera.png"
+    width="450"
+    height="300"
+  />
+  <img
+    class="fragment current-visible"
+    data-fragment-index="1"
+    src="https://www.topolino.it/wp-content/uploads/2019/12/plutointera.png"
+    width="300"
+    height="450"
+  />
+  <img
+    class="fragment current-visible"
+    data-fragment-index="2"
+    src="https://it.wikifur.com/w/images/thumb/6/6f/Donald_Duck.png/362px-Donald_Duck.png"
+    width="400"
+    height="400"
+  />
 </div>
+{{%/ col %}}
 
-{{% /col %}}{{% col  %}}
+{{%/ multicol %}}
 
-<div class="mx-5 text-center">
-
-
-<img src="images/bdi-diagram.svg" width="100%" />
-
-## *<i class="fa-solid fa-arrow-up"></i> BDI* 
-Reference <u>framework</u> (*AgentSpeak(L)*) for *Multi-Agent Systems*. 
-
-</div>
-
-{{% /col %}}{{% /multicol %}}
-
-<div>
-<small style="text-align: left"> 
-[*] Baiardi M. - Supporting Autonomic Computing via BDI Tooling. ACSOS-C 2024
-</small>
-</div>
-
----
-<!-- 
-# MAPE-K vs. BDI: Key differences
-
-### Conceptual vs. practical
-
-* **MAPE-K** defines a conceptual model, needs application-specific implementations
-    * favors ad-hoc implementations
-* **BDI** is typically reified into a practical tool (a language or library)
-    * enforces commitment to a technology
-
-### Architectural vs. formal
-
-* **MAPE-K** defines a reasoning architecture and a loop scheme
-* **BDI** has been formalised into AgentSpeak(L)
-    * Typical implementations adhere to the formal specification
-
-### Simple vs. complex
-
-* **MAPE-K** is simpler
-    * can be implemented on a per-application basis
-* **BDI** requires complex matching ad plan-selection algorithms
-    * hard to build from scratch in a custom fashion
-
---- -->
-
-# Current project: 
-# *JaKtA*
-
-<br />
-
-<div>
-<small style="text-align: left"> 
-[*] Baiardi, M., Burattini, S., Ciatto, G., & Pianini, D. - Blending BDI Agents with Object-Oriented and Functional Programming with JaKtA. SN Comput. Sci. 5(8): 1003 (2024)
-
-</small>
-</div>
 
 ---
 
-## Jakta
+# Keystrokes
 
-- **For software engineers**: Multi-paradigm AOP/BDI+OOP+FP BDI Multi-Agent Systems programming framework
-- **For research**: Using a single tool to express several types of Distributed systems
-- **Key features**: flexibility <i class="fa-solid fa-arrow-right"></i> it allows to plug-in other tools (for example `simulation`) 
-
----
-
-## Still a work in progress
-
-- It currently offer a framework for BDI agents using a `Prolog` DSL
-- Allows the execution of simulation through the `Alchemist` tool
-
-<br />
-<br />
-
-
-## In the future ...
-
-- I am **currently** working on a new version of the tool 
-  - to model simplest agents than the AgentSpeak(L) notion (towards MAPE-K)
-  - to simplify the modularity of the tool
-  - to let agents adopt `aggregate plans` ... seamlessly :)  
-
----
-
-# Collaboration with CAU
- 
----
-
+<kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>Del</kbd>

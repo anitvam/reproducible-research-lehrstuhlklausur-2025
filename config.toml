@@ -1,6 +1,6 @@
-baseURL = "https://anitvam.github.io/my-research-area-introduction"
+baseURL = "https://anitvam.github.io/reproducible-research-lehrstuhlklausur-2025"
 languageCode = "en-us"
-title = "Supporting Autonomic Computing via BDI Tooling"
+title = "Reproducible Research Experiments"
 disableKinds = ["sitemap", "RSS"]
 theme = "reveal-hugo"
 publishDir = "build"
@@ -10,7 +10,7 @@ publishDir = "build"
 # uglyURLs = true
 
 [author]
-name = "Martina Baiardi"
+name = "Martina Baiardi and Raphael Schwinger"
 
 # currently only the unsafe mode for goldmark is supported
 [markup.goldmark.renderer]
