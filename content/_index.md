@@ -3,18 +3,40 @@ title = "Reproducible Research Experiments"
 outputs = ["Reveal"]
 +++
 
-# Reproducible Research Experiments
+# Reproducible Experiments 
+# in Computer Science Research
 ## Martina Baiardi and Raphael Schwinger
 
 ---
 
 # Table of Contents
+## **Slide to be removed**
 
 1. Introduction to reproducible research meaning (**Martina**)
 2. Reproducibility starts from development: build tools (gradle x JVM, Poetry x Python) and frameworks (hydra) (**Raphael**)
 3. Basics of Containerization: Dockerfile and docker-compose (**Martina**)
 4. Hands on a project: RL reproducible experiment setup using Poetry and Hydra (**Raphael**)
 5. Cherry on the top: automation. GitHub, OSS proj, CI/CD pipelines, Github Actions, ... (**Martina**)
+
+---
+
+# What is reproducibility?
+
+{{% multicol %}}{{% col %}}
+
+Reproducibility of experiments is the key to validating scientific claims.
+
+1. **Validation of Results** that were claimed in the scientific publication
+2. **Advancing Knowledge** without re-building everything from scratch
+
+{{% /col %}}{{% col class="text-center" %}}
+
+<img src="images/building-blocks.svg" width=60%/>
+
+{{% /col %}}{{% /multicol %}}
+
+---
+
 
 
 ---
