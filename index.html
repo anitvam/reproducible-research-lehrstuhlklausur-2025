@@ -62,12 +62,12 @@
 </li>
 </ul>
 </section><section>
-<h1 id="1-artifacts-not-available">1) Artifacts not available</h1>
+<h2 id="1-artifacts-not-available">1) Artifacts not available</h2>
 <p>The link to the research artifacts (code, data, etc.) is broken.</p>
 <img class="inline-block" src="images/github.png" width="40%/">
 <img class="inline-block" src="images/zenodo.png" width="25%/">
 </section><section>
-<h1 id="2-missing-an-explanation-on-how-to-execute-it">2) Missing an explanation on how to execute it</h1>
+<h2 id="2-missing-an-explanation-on-how-to-execute-it">2) Missing an explanation on how to execute it</h2>
 <ul>
 <li>The artifacts are available but in non-standard formats that researchers can be unfamiliar with.</li>
 <li>The file sizes are unexpectedly large.</li>
@@ -78,26 +78,28 @@
 <blockquote>
 <p>Example: How would you open and execute a <code>duffy-duck.qcow2</code> file that weights 20GB? Yes, it can be a valid artifact.</p></blockquote>
 </section><section>
-<h1 id="3-the-artifact-is-not-running">3) The artifact is not running</h1>
+<h2 id="3-the-artifact-is-not-running">3) The artifact is not running</h2>
 <ul>
 <li>Strange errors prevent the artifact to execute on my pc</li>
 <li>Runtime dependencies may be missing, but <code>which</code> ones?</li>
 </ul>
 </section><section>
-<h2 id="moreover-lets-dont-forget-about">Moreover, let’s don’t forget about</h2>
+<h2 id="finally-lets-dont-forget-about">Finally, let’s don’t forget about</h2>
 <h2 id="the-elephant-in-the-room">the elephant in the room</h2>
 <img class="inline-block" src="images/gpt-papers.png" width="80%/">
 </section><section>
 <h1 id="as-computer-scientists-we-can-do-better">As computer scientists we can do better</h1>
+<p>We can demonstrate that our paper claims work,
+by providing a reproducible companion artifact.</p>
 
 
 <span class="fragment ">
-  <p>Reproducibility starts from development:</p>
+  <p>However, reproducibility is a process that starts from software development:</p>
 <ol>
-<li><strong>Reproducible builds</strong>: Adoption of build automation <br> tools to manage experiment dependencies.</li>
-<li><strong>Isolation</strong>: Prepare a lightweight containerized environment <br> for the distribution of the experiment.</li>
-<li><strong>Automation</strong>: Create an automatic pipeline that tests <br> the source-code and generates the artifacts, <br>so you don’t have to do it by hand.</li>
-<li><strong>Open-Source Research</strong>: protect your ownership <br> by picking correct license.</li>
+<li><strong>Reproducible builds</strong>: Adoption of build automation tools to manage experiment dependencies.</li>
+<li><strong>Isolation</strong>: Prepare a lightweight containerized environment for the distribution of the experiment.</li>
+<li><strong>Automation</strong>: Create an automatic pipeline that tests the source-code and generates the artifacts, so you don’t have to do it by hand.</li>
+<li><strong>Open-Source Research</strong>: protect your ownership by picking correct license.</li>
 </ol>
 
 </span>
@@ -108,11 +110,167 @@
 </section><section>
 <h1 id="containerization">Containerization</h1>
 </section><section>
+<h2 id="long-story-short">Long story short</h2>
+<img src="https://external-preview.redd.it/kPQ__at4fKKgnYwxUE1Y50bSW7dMyypwpCgPUmFRg04.jpg?auto=webp&amp;s=f3b7d41ce149fcc8074a02bd90f6d82f59c9544b" width="100%">
+<small>
+Image <a href="https://external-preview.redd.it/kPQ__at4fKKgnYwxUE1Y50bSW7dMyypwpCgPUmFRg04.jpg?auto=webp&amp;s=f3b7d41ce149fcc8074a02bd90f6d82f59c9544b">source</a>
+</small>
+</section><section>
+<h2 id="actually-the-story-is-longer">Actually, the story is longer</h2>
+<ul>
+<li>Technically, a machine can be “shipped” using virtualization</li>
+<li>Virtual Machines encapsulates the whole Operating System. The result is:
+<ul>
+<li>a heavy-weight disk file (order of <code>GB</code>s)</li>
+<li>a slower startup, and consequently running</li>
+</ul>
+</li>
+<li>They rely on <strong>hypervisors</strong>, software that make hardware resources available to the virtualized host operating system.</li>
+</ul>
+<p><img src="images/hypervisors.ppm" width="50%"> <br>
+<small>
+Source: Research Gate. Available <a href="https://www.researchgate.net/figure/The-architecture-of-the-virtual-machine-hypervisor-based-on-9_fig1_333209316">here</a>.
+</small></p>
+</section><section>
+<h2 id="do-we-really-need-the-whole-operating-system">Do we really need the whole Operating System?</h2>
+
+
+<span class="fragment ">
+  <p>In most cases the answer is <span class="red">no</span></p>
+
+</span>
+
+<img src="https://georgiamurch.com/wp-content/uploads/2023/11/elephantintheroom.jpeg" width="100%">
+<small>
+Image <a href="https://georgiamurch.com/wp-content/uploads/2023/11/elephantintheroom.jpeg">source</a>
+</small>
+</section><section>
+<h2 id="what-is-containerization">What is containerization?</h2>
+<ul>
+<li>Containerization is a lightweight form of virtualization</li>
+<li>It allows you to package and run applications and their dependencies in isolated environments, called containers.</li>
+<li>Ensures consistent environments for development, testing, and production.</li>
+</ul>
+</section><section>
+<h2 id="how-containers-work">How Containers Work</h2>
+
+<div class="multiCol "><div class="col col-50 "><ul>
+<li>
+<p>Containers share the host system’s kernel but are isolated in their own user space.</p>
+</li>
+<li>
+<p><strong>Container Image</strong>: A lightweight, standalone, executable package that includes everything needed to run the software.</p>
+</li>
+<li>
+<p><strong>Container</strong>: A running instance of an image.</p>
+</li>
+</ul>
+</div>
+<div class="col col-50 text-center"><img src="images/rtual-Machine-Vs-Container.png" width="100%">
+<small>
+Source: Research Gate. Available <a href=" https://www.researchgate.net/figure/rtual-Machine-Vs-Container_fig1_340812070 ">here</a>.
+</small>
+</div></div>
+</section><section>
+<h2 id="container--docker">Container != Docker</h2>
+<p><strong>Docker</strong> is an open-source platform for distributing and executing containers.</p>
+<p>It’s not the only solution, but we use it as a reference since it’s the most used.</p>
+<img src="images/docker.png" width="20%">
+<img src="images/containerd.webp" width="30%">
+<img src="images/buildah.png" width="30%">
+<img src="images/lxc.png" width="20%">
+<img src="images/podman.png" width="30%">
+</section><section>
+<h2 id="docker-key-concepts">Docker Key-Concepts</h2>
+<p><strong>Docker Image</strong>: Template for creating containers, built from a <code>Dockerfile</code>.</p>
+<p><strong>Docker Hub</strong>: A cloud-based registry for storing and sharing Docker images.</p>
+<p><strong>Dockerfile</strong>: A text file containing a set of instructions to build a Docker image.</p>
+</section><section>
+<h2 id="basic-docker-commands">Basic Docker Commands</h2>
+<p><code>docker build</code>: Build an image from a <code>Dockerfile</code>.</p>
+<p><code>docker run</code>: Run a container from an image.</p>
+<p><code>docker ps</code>: List running containers on the machine.</p>
+<p><code>docker images</code>: List all locally available Docker images.</p>
+<p><code>docker stop</code>: Stop a running container.</p>
+</section><section>
+<h2 id="creating-a-dockerfile">Creating a Dockerfile</h2>
+<p>A Dockerfile is a script with instructions on how Docker Image is built.</p>
+<div class="w-50 m-auto" style="font-size: 1.5em;">
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="nohighlight" data-noescape=""><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">FROM</span><span style="color:#4e9a06"> python:3.9</span><span style="color:#a40000">
+</span></span></span><span style="display:flex;"><span><span style="color:#a40000"></span><span style="color:#204a87;font-weight:bold">WORKDIR</span><span style="color:#4e9a06"> /app</span><span style="color:#a40000">
+</span></span></span><span style="display:flex;"><span><span style="color:#a40000"></span><span style="color:#204a87;font-weight:bold">COPY</span> . .<span style="color:#a40000">
+</span></span></span><span style="display:flex;"><span><span style="color:#a40000"></span><span style="color:#204a87;font-weight:bold">RUN</span> pip install -r requirements.txt<span style="color:#a40000">
+</span></span></span><span style="display:flex;"><span><span style="color:#a40000"></span><span style="color:#204a87;font-weight:bold">CMD</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">"python"</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">"experiment.py"</span><span style="color:#000;font-weight:bold">]</span><span style="color:#a40000">
+</span></span></span></code></pre></div></div>
+<p>Explanation:</p>
+<ul>
+<li><code>FROM</code>: Specifies the base image (here, <a href="https://hub.docker.com/_/python">Python 3.9</a>).</li>
+<li><code>WORKDIR</code>: Sets the working directory inside the container.</li>
+<li><code>COPY</code>: Copies files from the host to the container.</li>
+<li><code>RUN</code>: Executes <code>shell</code> commands inside the container.</li>
+<li><code>CMD</code>: Defines the command to run when the container eventually starts.</li>
+</ul>
+<p>Complete list of Dockerfile instructions <a href="https://docs.docker.com/reference/dockerfile/">here</a>.</p>
+</section><section>
+<h2 id="building-a-docker-image">Building a Docker Image</h2>
+<p>To build the Docker image from the Dockerfile:</p>
+<div class="w-50 m-auto" style="font-size: 1.5em;">
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="nohighlight" data-noescape=""><span style="display:flex;"><span>docker build -t myapp:latest .
+</span></span></code></pre></div></div>
+<h2 id="running-a-docker-container">Running a Docker Container</h2>
+<div class="w-50 m-auto" style="font-size: 1.5em;">
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="nohighlight" data-noescape=""><span style="display:flex;"><span>docker run -d -p 5000:5000 myapp:latest
+</span></span></code></pre></div></div>
+</section><section>
+<h2 id="multi-container-applications">Multi-Container Applications</h2>
+<blockquote>
+<p>How many containers do you need for a web server?</p></blockquote>
+
+
+<span class="fragment ">
+  <p>At least <span class="red">two</span>: One for the front-end and another for the backend. <span class="red">Plus another one</span> if there’s also a database.</p>
+<p><strong>Do I need to configure and run each one independently?</strong></p>
+
+</span>
+
+
+
+<span class="fragment ">
+  <p>Obviously no.</p>
+<p><strong>Docker compose</strong> is a tool for defining and running multi-container Docker applications using <code>YAML</code> syntax.</p>
+<div class="w-50 m-auto" style="font-size: 1.5em;">
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="nohighlight" data-noescape=""><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">version</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">'3'</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">services</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">web</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">image</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">myapp</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">ports</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span>- <span style="color:#4e9a06">"5000:5000"</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">db</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">image</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">postgres</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">environment</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">POSTGRES_PASSWORD</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">example</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span></code></pre></div>
+
+
+</div>
+<p>Is simply run with:</p>
+<div class="w-50 m-auto" style="font-size: 1.5em;">
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="nohighlight" data-noescape=""><span style="display:flex;"><span>docker-compose up
+</span></span></code></pre></div></div>
+</span></section><section>
+<h2 id="is-this-complexity-worth-it">Is this complexity worth it?</h2>
+<p><strong>Portability</strong>:
+Docker containers can run on any machine.</p>
+<p><strong>Isolation</strong>:
+Each container is isolated, which means applications and dependencies do not conflict.</p>
+<p><strong>Efficiency</strong>:
+Containers are lightweight and start quickly, allowing faster deployment cycles.</p>
 </section><section>
 <h1 id="hands-on-a-real-example">Hands on a real example!</h1>
 <p>Raphael you can continue here</p>
 </section><section>
-<h1 id="cherry-on-the-top">Cherry on the top</h1>
+<h1 id="cherry-on-the-top-automation">Cherry on the top: Automation</h1>
+<p>TBD</p>
 </section><section>
 </section>
 
