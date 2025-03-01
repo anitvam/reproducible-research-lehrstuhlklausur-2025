@@ -336,10 +336,108 @@ Raphael you can continue here
 
 ---
 
-# Cherry on the top: Automation
-
-TBD
+# Automation
 
 ---
 
+<img src="images/a-world-without-ci.cd-meme.webp" width=100% />
 
+---
+
+## Recipe for automation
+
+Automation:
+  1. Put your experiment in a **Repository**
+  2. Choose a standard **license** 
+  3. Configure **CI/CD**
+
+---
+
+## Code repositories
+
+* Foster Collaboration
+* Share changes on the codebase
+* Provide auxiliary services
+  - Issue tracking
+  - CI/CD
+  - Documentation hosting
+* Most popular: `GitHub` and `GitLab`
+* Prefer cloud-based solutions instead of on-premise ones
+* Prepare a good `README.md` that describes how to execute the experiment
+* **Just share the source files, do not share the builds! Prepare a correct `.gitignore`**
+
+<img src="images/githubvsgitlab.png"  width=50% />
+
+---
+
+> Public or private repository?
+
+{{% fragment %}}
+Open-sourcing allows the community to work on your problem, build on it and improve it!
+
+> Are you afraid that someone can "steal" your work?
+
+{{% /fragment %}}
+
+{{% fragment %}}
+
+If you don't pick a **license**, your repository is considered `proprietary` even if it is public.
+
+If you want to allow contributions, just pick the correct licensing: http://choosealicense.com/licenses/
+
+{{% /fragment %}}
+
+---
+
+## CI/CD: Continuous Integration & Continuous Deployment
+
+For each change on the source code:
+  * automatically run a verification process
+  * if tests succeed, then prepare the artifact
+  * if the artifact is generated correctly, then publish it
+
+---
+
+Most code hosting platforms provide free limited plans for setting up CI/CD.
+
+Usually, free plans are offered only for **public** repositories
+
+**GitHub** <span class="fa fa-arrow-right"> </span> **GitHub Actions**
+
+---
+
+## GitHub Action Key concepts
+
+  1. **Workflow**: automation process triggered by events (e.g., push, pull request, issue creation). 
+  2. **Pipeline**: structured sequence of `jobs` (like build, test, deploy) executed as part of a workflow.
+
+Each job runs in its own virtual machine or container.
+
+Each job consists of multiple `steps`, which can include running shell commands or using prebuilt `actions`.
+
+  3. **Actions**: reusable jobs that can be re-used 
+  4. **Runners**: machines that execute workflows. 
+
+GitHub provides hosted runners (Linux, macOS, Windows), or you can use self-hosted runners.
+
+---
+
+## Quickstart
+
+Workflows are defined as `YAML` files inside `.github/workflows/` folder of the project.
+
+If the folder exists, then GitHub tries to execute the workflows inside of that.
+
+---
+
+## Some examples
+
+Trivial example: [this repository](https://github.com/anitvam/reproducible-research-lehrstuhlklausur-2025)
+
+Better example: [submitted experiment](https://github.com/anitvam/uav-circle-2024-jakta-alchemist)
+
+---
+
+# You are free now
+
+### Questions?
