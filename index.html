@@ -269,9 +269,91 @@ Containers are lightweight and start quickly, allowing faster deployment cycles.
 <h1 id="hands-on-a-real-example">Hands on a real example!</h1>
 <p>Raphael you can continue here</p>
 </section><section>
-<h1 id="cherry-on-the-top-automation">Cherry on the top: Automation</h1>
-<p>TBD</p>
+<h1 id="automation">Automation</h1>
 </section><section>
+<img src="images/a-world-without-ci.cd-meme.webp" width="100%">
+</section><section>
+<h2 id="recipe-for-automation">Recipe for automation</h2>
+<p>Automation:</p>
+<ol>
+<li>Put your experiment in a <strong>Repository</strong></li>
+<li>Choose a standard <strong>license</strong></li>
+<li>Configure <strong>CI/CD</strong></li>
+</ol>
+</section><section>
+<h2 id="code-repositories">Code repositories</h2>
+<ul>
+<li>Foster Collaboration</li>
+<li>Share changes on the codebase</li>
+<li>Provide auxiliary services
+<ul>
+<li>Issue tracking</li>
+<li>CI/CD</li>
+<li>Documentation hosting</li>
+</ul>
+</li>
+<li>Most popular: <code>GitHub</code> and <code>GitLab</code></li>
+<li>Prefer cloud-based solutions instead of on-premise ones</li>
+<li>Prepare a good <code>README.md</code> that describes how to execute the experiment</li>
+<li><strong>Just share the source files, do not share the builds! Prepare a correct <code>.gitignore</code></strong></li>
+</ul>
+<img src="images/githubvsgitlab.png" width="50%">
+</section><section>
+<blockquote>
+<p>Public or private repository?</p></blockquote>
+
+
+<span class="fragment ">
+  <p>Open-sourcing allows the community to work on your problem, build on it and improve it!</p>
+<blockquote>
+<p>Are you afraid that someone can “steal” your work?</p></blockquote>
+
+</span>
+
+
+
+<span class="fragment ">
+  <p>If you don’t pick a <strong>license</strong>, your repository is considered <code>proprietary</code> even if it is public.</p>
+<p>If you want to allow contributions, just pick the correct licensing: <a href="http://choosealicense.com/licenses/">http://choosealicense.com/licenses/</a></p>
+
+</span>
+
+</section><section>
+<h2 id="cicd-continuous-integration--continuous-deployment">CI/CD: Continuous Integration &amp; Continuous Deployment</h2>
+<p>For each change on the source code:</p>
+<ul>
+<li>automatically run a verification process</li>
+<li>if tests succeed, then prepare the artifact</li>
+<li>if the artifact is generated correctly, then publish it</li>
+</ul>
+</section><section>
+<p>Most code hosting platforms provide free limited plans for setting up CI/CD.</p>
+<p>Usually, free plans are offered only for <strong>public</strong> repositories</p>
+<p><strong>GitHub</strong> <span class="fa fa-arrow-right"> </span> <strong>GitHub Actions</strong></p>
+</section><section>
+<h2 id="github-action-key-concepts">GitHub Action Key concepts</h2>
+<ol>
+<li><strong>Workflow</strong>: automation process triggered by events (e.g., push, pull request, issue creation).</li>
+<li><strong>Pipeline</strong>: structured sequence of <code>jobs</code> (like build, test, deploy) executed as part of a workflow.</li>
+</ol>
+<p>Each job runs in its own virtual machine or container.</p>
+<p>Each job consists of multiple <code>steps</code>, which can include running shell commands or using prebuilt <code>actions</code>.</p>
+<ol start="3">
+<li><strong>Actions</strong>: reusable jobs that can be re-used</li>
+<li><strong>Runners</strong>: machines that execute workflows.</li>
+</ol>
+<p>GitHub provides hosted runners (Linux, macOS, Windows), or you can use self-hosted runners.</p>
+</section><section>
+<h2 id="quickstart">Quickstart</h2>
+<p>Workflows are defined as <code>YAML</code> files inside <code>.github/workflows/</code> folder of the project.</p>
+<p>If the folder exists, then GitHub tries to execute the workflows inside of that.</p>
+</section><section>
+<h2 id="some-examples">Some examples</h2>
+<p>Trivial example: <a href="https://github.com/anitvam/reproducible-research-lehrstuhlklausur-2025">this repository</a></p>
+<p>Better example: <a href="https://github.com/anitvam/uav-circle-2024-jakta-alchemist">submitted experiment</a></p>
+</section><section>
+<h1 id="you-are-free-now">You are free now</h1>
+<h3 id="questions">Questions?</h3>
 </section>
 
   
