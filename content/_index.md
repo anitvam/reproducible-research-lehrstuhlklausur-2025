@@ -9,7 +9,7 @@ outputs = ["Reveal"]
 
 ---
 
-# Table of Contents
+<!-- # Table of Contents
 ## **Slide to be removed**
 
 1. Introduction to reproducible research meaning (**Martina**)
@@ -18,7 +18,7 @@ outputs = ["Reveal"]
 4. Hands on a project: RL reproducible experiment setup using Poetry and Hydra (**Raphael**)
 5. Cherry on the top: automation. GitHub, OSS proj, CI/CD pipelines, Github Actions, ... (**Martina**)
 
----
+--- -->
 
 # What is reproducibility?
 
