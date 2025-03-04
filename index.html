@@ -106,7 +106,76 @@ by providing a reproducible companion artifact.</p>
 
 </section><section>
 <h1 id="build-automation-tools">Build automation tools</h1>
-<p>Raphael you can continue here</p>
+<ul>
+<li>Dependency management</li>
+<li>Build automation</li>
+<li>Consistency Across Environments</li>
+<li>Incremental Builds</li>
+</ul>
+</section><section>
+<h2 id="popular-examples">Popular examples</h2>
+<ul>
+<li><strong><a href="https://gradle.org/">Gradle</a></strong> (Java)</li>
+<li><strong><a href="https://www.npmjs.com/">NPM</a></strong> (Node.js / JavaScript)</li>
+<li><strong><a href="https://python-poetry.org/">Poetry</a></strong> (Python)</li>
+<li><strong><a href="https://doc.rust-lang.org/cargo/">Cargo</a></strong> (Rust)</li>
+</ul>
+</section><section>
+<h2 id="python-pip-just-does-not-cut-it">Python: pip just does not cut it</h2>
+<ul>
+<li><code>pip install</code>
+<ul>
+<li>installs packages globally, which can lead to conflicts</li>
+<li>does not save the exact versions of the dependencies -&gt; inconsistent environments</li>
+</ul>
+</li>
+<li>What we need:
+<ul>
+<li>Dependency management: when one developer installs a package, all other developers can easily install the same package with the same version</li>
+<li>(Virtual Environments: to isolate the dependencies of different projects)</li>
+<li>Build automation: to manage the build process and run tests</li>
+</ul>
+</li>
+</ul>
+</section><section>
+<h2 id="poetry">Poetry</h2>
+<ul>
+<li>Dependency management
+<ul>
+<li><code>poetry install</code> to install dependencies defined in <code>pyproject.toml</code></li>
+<li><code>poetry add &lt;package&gt;</code> to add a new dependency</li>
+<li>Will automatically update <code>pyproject.toml</code> and <code>poetry.lock</code></li>
+<li><code>poetry update</code> to update dependencies</li>
+</ul>
+</li>
+<li>Environment management
+<ul>
+<li><code>eval $(poetry env activate)</code> to activate the virtual environment</li>
+</ul>
+</li>
+</ul>
+</section><section>
+<h1 id="configuration-frameworks">Configuration Frameworks</h1>
+<ul>
+<li><strong><a href="https://hydra.cc/">Hydra</a></strong>: A framework for elegantly configuring complex applications</li>
+<li><strong><a href="https://docs.python.org/3/library/argparse.html">Argparse</a></strong>: The standard library for command-line parsing in Python</li>
+</ul>
+</section><section>
+<h2 id="hydra">Hydra</h2>
+<ul>
+<li><strong>Configuration files</strong>: YAML files that define the configuration of the experiment</li>
+<li><strong>Hierarchical Configuration Composition</strong>: Allows to define a base configuration and override it with specific configurations</li>
+<li><strong>Command-Line Overrides</strong>: Allows to override configuration values from the command line</li>
+<li><strong>Multi-Run</strong>: Allows to run the same experiment with different configurations</li>
+</ul>
+</section><section>
+<h1 id="logging">Logging</h1>
+<ul>
+<li>Track the experiment’s progress and used configurations</li>
+<li><strong><a href="https://wandb.ai/site">Wandb</a></strong>: A platform for tracking machine learning experiments</li>
+<li><strong><a href="https://www.tensorflow.org/tensorboard">TensorBoard</a></strong>: A visualization toolkit for machine learning experiments</li>
+<li><strong><a href="https://mlflow.org/">MLflow</a></strong>: An open-source platform for managing the end-to-end machine learning lifecycle</li>
+</ul>
 </section><section>
 <h1 id="containerization">Containerization</h1>
 </section><section>
@@ -267,7 +336,8 @@ Each container is isolated, which means applications and dependencies do not con
 Containers are lightweight and start quickly, allowing faster deployment cycles.</p>
 </section><section>
 <h1 id="hands-on-a-real-example">Hands on a real example!</h1>
-<p>Raphael you can continue here</p>
+<p>A highly opinioated example: <a href="https://github.com/raphaelschwinger/lightning-hydra-template">https://github.com/raphaelschwinger/lightning-hydra-template</a> <br>
+Forked from: <a href="https://github.com/ashleve/lightning-hydra-template">https://github.com/ashleve/lightning-hydra-template</a></p>
 </section><section>
 <h1 id="automation">Automation</h1>
 </section><section>
