@@ -105,9 +105,72 @@ However, reproducibility is a process that starts from software development:
 
 # Build automation tools
 
-Raphael you can continue here
+- Dependency management
+- Build automation
+- Consistency Across Environments
+- Incremental Builds
 
 ---
+
+## Popular examples
+
+- **[Gradle](https://gradle.org/)** (Java)
+- **[NPM](https://www.npmjs.com/)** (Node.js / JavaScript)
+- **[Poetry](https://python-poetry.org/)** (Python)
+- **[Cargo](https://doc.rust-lang.org/cargo/)** (Rust)
+
+---
+
+## Python: pip just does not cut it
+
+- `pip install`
+  - installs packages globally, which can lead to conflicts 
+  - does not save the exact versions of the dependencies -> inconsistent environments
+- What we need:
+  - Dependency management: when one developer installs a package, all other developers can easily install the same package with the same version
+  - (Virtual Environments: to isolate the dependencies of different projects)
+  - Build automation: to manage the build process and run tests
+
+
+---
+
+## Poetry
+
+- Dependency management
+  - `poetry install` to install dependencies defined in `pyproject.toml`
+  - `poetry add <package>` to add a new dependency
+  - Will automatically update `pyproject.toml` and `poetry.lock`
+  - `poetry update` to update dependencies
+- Environment management
+  - `eval $(poetry env activate)` to activate the virtual environment
+
+---
+
+# Configuration Frameworks
+
+- **[Hydra](https://hydra.cc/)**: A framework for elegantly configuring complex applications
+- **[Argparse](https://docs.python.org/3/library/argparse.html)**: The standard library for command-line parsing in Python
+
+---
+
+## Hydra
+
+- **Configuration files**: YAML files that define the configuration of the experiment
+- **Hierarchical Configuration Composition**: Allows to define a base configuration and override it with specific configurations
+- **Command-Line Overrides**: Allows to override configuration values from the command line
+- **Multi-Run**: Allows to run the same experiment with different configurations
+
+---
+
+# Logging
+
+- Track the experiment's progress and used configurations
+- **[Wandb](https://wandb.ai/site)**: A platform for tracking machine learning experiments
+- **[TensorBoard](https://www.tensorflow.org/tensorboard)**: A visualization toolkit for machine learning experiments
+- **[MLflow](https://mlflow.org/)**: An open-source platform for managing the end-to-end machine learning lifecycle
+
+
+--- 
 
 # Containerization
 
@@ -332,7 +395,8 @@ Containers are lightweight and start quickly, allowing faster deployment cycles.
 
 # Hands on a real example! 
 
-Raphael you can continue here
+A highly opinioated example: https://github.com/raphaelschwinger/lightning-hydra-template <br/>
+Forked from: https://github.com/ashleve/lightning-hydra-template
 
 ---
 
